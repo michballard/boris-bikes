@@ -1,5 +1,9 @@
 module BikeContainer
 
+	attr_writer :capacity
+
+
+
 	DEFAULT_CAPACITY = 10
 
 	def bikes
@@ -10,9 +14,6 @@ module BikeContainer
 		@capacity ||= DEFAULT_CAPACITY
 	end
 
-	def capacity=(value)
-		@capacity=value
-	end
 
 	def bike_count
 		bikes.count
