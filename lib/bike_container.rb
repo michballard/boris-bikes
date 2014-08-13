@@ -51,4 +51,8 @@ module BikeContainer
 		raise "this is not a bike" unless bike.is_a? Bike
 	end
 
+	def broken_bikes
+		bikes.count {|bike| bike.broken?}
+	end
+
 end

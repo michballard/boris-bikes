@@ -6,6 +6,8 @@ describe BikeContainer do
 
 	let(:bike) { Bike.new }
 	let(:holder) { ContainerHolder.new }
+	let(:working_bike) { Bike.new}
+	let(:broken_bike) { Bike.new.break! }
 
 	def fill_holder(holder)
 		holder.capacity.times { holder.dock(Bike.new)}
@@ -35,8 +37,7 @@ describe BikeContainer do
 	end
 
 	it "should provide the list of available bikes" do
-		working_bike, broken_bike = Bike.new, Bike.new
-		broken_bike.break! # reminder - documentation missing exclamation mark
+		broken_bike # reminder - documentation missing exclamation mark
 		holder.dock(working_bike)
 		holder.dock(broken_bike)
 		expect(holder.available_bikes).to eq([working_bike])
@@ -60,8 +61,7 @@ describe BikeContainer do
 	end
 
 	it "should provide the list of available bikes" do
-		working_bike, broken_bike = Bike.new, Bike.new
-		broken_bike.break! 
+		broken_bike
 		holder.dock(working_bike)
 		holder.dock(broken_bike)
 		expect(holder.available_bikes).to eq([working_bike])
@@ -89,6 +89,14 @@ describe BikeContainer do
 		holder.release(bike)
 		expect(holder.empty?).to be true
 		expect(lambda { holder.release(bike)}).to raise_error("bike not available")
+	end
+
+	it "should check how many broken bikes are available" do
+		working_bike.break!
+		broken_bike
+		holder.dock(working_bike)
+		holder.dock(broken_bike)
+		expect(holder.broken_bikes).to eq(2)
 	end
 
 end
