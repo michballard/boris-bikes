@@ -8,7 +8,7 @@ describe BikeContainer do
 	let(:holder) { ContainerHolder.new }
 
 	def fill_holder(holder)
-		10.times { holder.dock(Bike.new)}
+		holder.capacity.times { holder.dock(Bike.new)}
 	end
 
 	it "should accept a bike" do	
@@ -82,4 +82,13 @@ describe BikeContainer do
 	it "should not dock something that is not a bike" do
 		expect( lambda{holder.dock(:apple)}).to raise_error("this is not a bike")
 	end
+
+	it "should not release a bike when container holder is empty" do
+		holder.dock(bike)		
+		expect(holder.empty?).to be false
+		holder.release(bike)
+		expect(holder.empty?).to be true
+		expect(lambda { holder.release(bike)}).to raise_error("bike not available")
+	end
+
 end
