@@ -1,4 +1,4 @@
-require 'garage'
+require './lib/garage'
 
 describe Garage do 
 
