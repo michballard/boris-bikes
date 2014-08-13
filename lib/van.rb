@@ -1,4 +1,5 @@
 require_relative 'bike_container'
+require './lib/garage'
 
 class Van
 

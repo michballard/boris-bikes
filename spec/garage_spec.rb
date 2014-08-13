@@ -1,5 +1,7 @@
 require './lib/garage'
 
+
+
 describe Garage do 
 
 	let(:garage) { Garage.new(:capacity => 250) }
