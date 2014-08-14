@@ -93,10 +93,9 @@ describe BikeContainer do
 
 	it "should check how many broken bikes are available" do
 		working_bike.break!
-		broken_bike
 		holder.dock(working_bike)
 		holder.dock(broken_bike)
-		expect(holder.broken_bikes).to eq(2)
+		expect(holder.broken_bikes).to eq [working_bike, broken_bike]
 	end
 
 end

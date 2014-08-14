@@ -30,7 +30,7 @@ module BikeContainer
 	def release(bike)
 		not_bike(bike)
 		raise "bike not specified" if bike == nil
-		raise "bike not available" if available_bikes.count == 0
+		raise "bike not available" if !bike.broken? && available_bikes.count == 0
 		bikes.delete(bike)
 	end
 
@@ -39,7 +39,7 @@ module BikeContainer
 	end
 
 	def available_bikes
-		bikes.reject {|bike| bike.broken?}
+		bikes.reject(&:broken?)
 	end
 
 	def empty?
@@ -52,7 +52,9 @@ module BikeContainer
 	end
 
 	def broken_bikes
-		bikes.count {|bike| bike.broken?}
+		# bikes.select(&:broken?)
+		bikes - available_bikes
 	end
+
 
 end
