@@ -44,4 +44,14 @@ describe Van do
 		expect(dockingstation.bikes).to eq [bike]		
 	end
 
+	it "should be able to take several bikes in one go from dockingstation" do
+		broken_bike_a = Bike.new.break!
+		broken_bike_b = Bike.new.break!
+		dockingstation.dock(broken_bike_a)
+		dockingstation.dock(broken_bike_b)
+		van.collect_broken_bikes_from(dockingstation)
+		expect(dockingstation.broken_bikes).to eq []
+		expect(van.bike_count).to eq 2
+	end
+
 end
