@@ -31,15 +31,17 @@ Clone the repository:
 $ git clone git@github.com:michballard/boris-bikes.git
 ```
 
-Change into the directory:
+Change directory:
 ```shell
 $ cd boris_bikes
 ```
 
-Open up IRM and require the file:
+Open up IRB and require file:
 ```shell
 > require './run_bikes.rb'
 ```
+
+####Methods available in this project
 
 To create new objects:
 ```shell
@@ -49,8 +51,6 @@ To create new objects:
 > van = Van.new
 > garage = Garage.new
 ```
-
-####Methods available in this project
 
 To load bike into a docking station:
 ```shell
