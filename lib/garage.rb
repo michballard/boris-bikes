@@ -9,12 +9,9 @@ class Garage
 		self.capacity = options.fetch(:capacity, capacity)
 	end
 
-	# alias_method :old_dock, :dock
-
 	def dock(bike)
 		bike.fixed!
 		super
-		# old_dock(bike)
 	end
 
 end
