@@ -6,11 +6,11 @@ This exercise involved modelling the London 'Boris Bikes' bike hire scheme using
 Functionality
 -------------
 - A docking station can have a bike added to it, either working or broken
-- A person can rent a bike from a station
-- A person can break a bike if they fall down
+- A bike can be broken
+- A person can rent a bike 
 - A person can return a bike
 - A van can pick up broken bikes from stations and drop them off at garages
-- A van can pick up fixed bikes from garage and dropp them off at stations
+- A van can pick up fixed bikes from garage and drop them off at stations
 - The garage can fix broken bikes
 
 Technologies used
@@ -20,7 +20,84 @@ Technologies used
 
 Testing
 -------
-
 Screenshot of test results from terminal:
 
 ![Screenshot](/images/screenshot.png)
+
+How to run it
+-------------
+Clone the repository:
+```shell
+$ git clone git@github.com:michballard/boris-bikes.git
+```
+
+Change into the directory:
+```shell
+$ cd boris_bikes
+```
+
+Open up IRM and require the file:
+```shell
+> require './run_bikes.rb'
+```
+
+To create new objects:
+```shell
+> bike = Bike.new
+> station = DockingStation.new
+> person = Person.new
+> van = Van.new
+> garage = Garage.new
+```
+
+####Methods available in this project
+
+To load bike into a docking station:
+```shell
+> station.dock(bike)
+```
+
+To release a bike from a docking station:
+```shell
+> station.release(bike)
+```
+
+To break a bike:
+```shell
+> bike.break!
+```
+
+To borrow a bike: 
+```shell
+> person.rents_bike!
+```
+
+To return a bike:
+```shell
+> person.returns_bike!
+```
+
+To fix a bike: 
+```shell
+> garage.dock(bike)
+```
+
+To collect broken bikes from station:
+```shell
+> van.collect_broken_bikes_from(station)
+```
+
+To release broken bikes to garage:
+```shell
+> van.release_broken_bikes_to(garage)
+```
+
+To pick up fixed bikes from garage:
+```shell
+> van.collect_fixed_bikes_from(garage)
+```
+
+To return fixed bikes to station:
+```shell
+> van.release_fixed_bikes_to(station)
+```
