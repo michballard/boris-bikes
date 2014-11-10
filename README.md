@@ -1,6 +1,8 @@
 | [Makers Academy](http://www.makersacademy.com) | Weeks 2 & 3 |
 | ------ | ------ |
 
+<a href="https://codeclimate.com/repos/5460ea3e695680201b011a74/feed"><img src="https://codeclimate.com/repos/5460ea3e695680201b011a74/badges/151aaec37affc10617db/gpa.svg" /></a>
+
 This exercise involved modelling the London 'Boris Bikes' bike hire scheme using object oriented programming.  This code was built on design principles such as SOLID and DRY.  Test driven coding and pair programming was also utilised.
 
 Functionality
